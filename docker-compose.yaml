@@ -5,8 +5,9 @@ services:
         context: ./ms-backend
     restart: always
   db:
-    image: postgres
-    restart: always
+    image: postgres:9.6
+    volumes: 
+      - ./volume/data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: Senha123! 
   adminer:
