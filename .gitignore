@@ -1,1 +1,5 @@
 **/volume
+.vscode*
+*/.DS_Store
+data
+*.env*

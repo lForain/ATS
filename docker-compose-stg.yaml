@@ -3,6 +3,9 @@ services:
   backend:
     build:
       context: ./ms-backend
+      dockerfile: Dockerfile-stg
+    volumes:
+      - './:/app'
     networks:
       - webnet
   db:

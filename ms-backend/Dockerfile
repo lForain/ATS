@@ -1,8 +1,13 @@
-FROM node:8
+FROM node:12.6.0-slim
 
 WORKDIR /app
-COPY . .
-RUN npm install
-EXPOSE 3000
 
-CMD ["node", "."]
+# COPY package*.json ./
+
+# RUN npm install
+
+COPY . .
+
+# EXPOSE 3000
+
+# CMD npm run dev
