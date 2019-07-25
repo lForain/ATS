@@ -1,10 +1,14 @@
 {
-    "compilerOptions": {
-        "module": "system",
-        "outFile": "./index.js",
-        "removeComments": true 
-    },
-    "exclude": [
-        "node_modules"
+  "compilerOptions": {
+    "module": "system",
+    "outFile": "./index.js",
+    "removeComments": true,
+    "types" : [
+      "node",
+      "jest"
     ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
