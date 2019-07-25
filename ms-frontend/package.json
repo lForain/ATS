@@ -1,7 +1,16 @@
 {
+  "license": "ISC",
   "devDependencies": {
     "tslint": "^5.18.0",
-    "typescript": "^3.5.3",
-    "license": "ISC"
-  }
+    "typescript": "^3.5.3"
+  },
+  "name": "ms-frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "description": ""
 }
