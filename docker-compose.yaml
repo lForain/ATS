@@ -3,6 +3,17 @@ services:
   backend:
     build:
       context: ./ms-backend
+    ports:
+      - "5001:3000"
+    networks:
+      - webnet
+  frontend:
+    build:
+      context: ./ms-frontend
+    volumes:
+      - './ms-frontend/src:/app/src'
+    ports:
+      - "5002:3000"
     networks:
       - webnet
   db:

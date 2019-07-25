@@ -8,6 +8,14 @@ services:
       - './:/app'
     networks:
       - webnet
+  frontend:
+    build:
+      context: ./ms-frontend
+      dockerfile: Dockerfile-stg
+    volumes:
+      - './:/app'
+    networks:
+      - webnet
   db:
     image: mongo:4.2.0-rc2-bionic
     volumes:
