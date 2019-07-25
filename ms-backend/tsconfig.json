@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        "module": "system",
+        "outFile": "./index.js",
+        "removeComments": true 
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}
