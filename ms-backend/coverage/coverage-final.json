@@ -1,2 +1,0 @@
-{"/Users/brunorossato/Desktop/rf-omt/ms-backend/src/sum.ts": {"path":"/Users/brunorossato/Desktop/rf-omt/ms-backend/src/sum.ts","statementMap":{"0":{"start":{"line":1,"column":13},"end":{"line":5,"column":2}},"1":{"start":{"line":3,"column":4},"end":{"line":3,"column":17}},"2":{"start":{"line":7,"column":0},"end":{"line":7,"column":22}}},"fnMap":{"0":{"name":"(anonymous_0)","decl":{"start":{"line":2,"column":7},"end":{"line":2,"column":8}},"loc":{"start":{"line":2,"column":28},"end":{"line":4,"column":3}}}},"branchMap":{},"s":{"0":1,"1":1,"2":1},"f":{"0":1},"b":{}}
-}
