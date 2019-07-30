@@ -6,3 +6,8 @@ Dockerfile
 data
 README.md
 LICENSE
+env.*
+/devops/*
+# To prevent storing dev/temporary container data
+*.csv
+/tmp/*

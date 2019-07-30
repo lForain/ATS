@@ -5,6 +5,8 @@ services:
       context: ./ms-backend
     ports:
       - "5001:3000"
+    depends_on:
+      - "db"
     networks:
       - webnet
   frontend:
@@ -14,6 +16,9 @@ services:
       - './ms-frontend/src:/app/src'
     ports:
       - "5002:3000"
+    depends_on:
+      - "backend"
+      - "db"
     networks:
       - webnet
   db:
