@@ -12,6 +12,4 @@ EXPOSE 3000
 
 RUN npm run build 
 
-RUN ls -ahls dist
-
 CMD npm run start

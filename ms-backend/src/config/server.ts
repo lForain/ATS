@@ -10,3 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.listen(config.port, () => {
     console.log(`Running on ${config.port}`);
 });
+
+app.get("/", (req, resp) => {
+    resp.send("inDEX");
+});
