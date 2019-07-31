@@ -7,7 +7,7 @@
     "test": "jest --coverage",
     "start": "node dist/server.js",
     "dev": "nodemon",
-    "build": "tsc"
+    "build": "tsc -p src/tsconfig.json"
   },
   "author": "",
   "license": "ISC",
