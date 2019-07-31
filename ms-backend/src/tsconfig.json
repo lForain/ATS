@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    "module": "system",
-    "outFile": "./index.js",
+    "outDir": "../dist",
     "removeComments": true,
     "types" : [
       "node",
