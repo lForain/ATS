@@ -1,16 +1,50 @@
 import * as bodyParser from "body-parser";
+import * as cookieParser from "cookie-parser";
 import * as express from "express";
+import * as mongoose from "mongoose";
+import * as logger from "morgan";
+import * as path from "path";
 import config from "./config";
 
-const app = express();
+export default function() {
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+    const app = express();
 
-app.listen(config.port, () => {
-    console.log(`Running on ${config.port}`);
-});
+    for (const model of config.globFiles(config.models)) {
+        require(path.resolve(model));
+      }
 
-app.get("/", (req, resp) => {
-    resp.send("inDEX");
-});
+    if (config.useMongo) {
+    mongoose
+        .connect(config.mongodb, {
+        promiseLibrary: global.Promise,
+        useMongoClient: true,
+        })
+        .catch(() => {
+        console.log("Error connecting to mongo");
+        });
+    }
+
+    app.use(logger("dev"));
+    app.use(bodyParser.json());
+    app.use(bodyParser.urlencoded({ extended: false }));
+    app.use(cookieParser());
+    app.use(express.static(path.join(__dirname, "../../src/public")));
+
+    for (const route of config.globFiles(config.routes)) {
+        require(path.resolve(route)).default(app);
+      }
+
+    app.use(
+    (req: express.Request, res: express.Response, next: Function): void => {
+        const err: Error = new Error("Not Found");
+        next(err);
+    },
+    );
+
+    app.listen(config.port, () => {
+        console.log(`Running on ${config.port}`);
+    });
+
+    return app;
+}
