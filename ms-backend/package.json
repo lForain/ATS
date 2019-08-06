@@ -2,10 +2,10 @@
   "name": "ms-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/config/server.js",
+  "main": "./dist/index.js",
   "scripts": {
     "test": "jest --coverage",
-    "start": "node dist/config/server.js",
+    "start": "node dist/index.js",
     "dev": "nodemon",
     "build": "tsc -p src/tsconfig.json"
   },

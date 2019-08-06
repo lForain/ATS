@@ -7,21 +7,20 @@ import * as path from "path";
 import config from "./config";
 
 export default function() {
-
     const app = express();
 
     for (const model of config.globFiles(config.models)) {
         require(path.resolve(model));
-      }
+    }
 
     if (config.useMongo) {
-    mongoose
-        .connect(config.mongodb, {
-        promiseLibrary: global.Promise,
-        useMongoClient: true,
+        mongoose
+            .connect(config.mongodb, {
+            promiseLibrary: global.Promise,
+            useMongoClient: true,
         })
         .catch(() => {
-        console.log("Error connecting to mongo");
+            console.log("Error connecting to mongo");
         });
     }
 
