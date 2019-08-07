@@ -1,3 +1,2 @@
 import { Server } from "https";
-
-const app = require("./config/server").default();
+import * as app from "./config/server";
