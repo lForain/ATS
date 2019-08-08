@@ -4,6 +4,8 @@ services:
     env_file: .env
     build:
       context: ./ms-backend
+    volumes:
+      - './ms-backend/src:/app/src'
     ports:
       - "5001:3000"
     depends_on:

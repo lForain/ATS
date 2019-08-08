@@ -1,11 +1,9 @@
-import * as https from "https";
+import * as http from "http";
 import config from "./config/config";
 
 const app = require("./config/express").default();
 
-const server: https.Server = new https.Server(app);
-
-server.listen(8443);
+const server: http.Server = new http.Server(app);
 
 server.listen(config.port);
 
