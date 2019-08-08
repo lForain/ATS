@@ -40,9 +40,5 @@ export default function() {
     },
   );
 
-  app.listen(config.port, () => {
-    console.log(`Running on ${config.port}`);
-  });
-
   return app;
 }
