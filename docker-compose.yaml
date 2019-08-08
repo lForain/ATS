@@ -1,6 +1,7 @@
 version: '3'
 services:
   backend:
+    env_file: .env
     build:
       context: ./ms-backend
     ports:
@@ -9,6 +10,7 @@ services:
       - "db"
     networks:
       - webnet
+      
   frontend:
     build:
       context: ./ms-frontend
@@ -21,6 +23,7 @@ services:
       - "db"
     networks:
       - webnet
+  
   db:
     image: mongo:4.2.0-rc2-bionic
     volumes:
