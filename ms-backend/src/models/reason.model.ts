@@ -1,14 +1,13 @@
-import { Model, model, Schema } from "mongoose";
-import { IReasonDb } from "../interfaces/reason.interface";
+import * as mongoose from "mongoose";
+import { Typegoose, prop } from "typegoose";
 
-export let reasonSchema: Schema = new Schema({
-  reasonDescription: {
-    required: true,
-    type: Schema.Types.String,
-  },
+class ReasonType extends Typegoose {
+  @prop({ required: true })
+  private reasonDescription!: string;
+}
+
+export const ReasonModel = new ReasonType().getModelForClass(ReasonType, {
+  existingMongoose: mongoose,
+  existingConnection: null,
+  schemaOptions: null,
 });
-
-export const Reason: Model<IReasonDb> = model<IReasonDb>(
-  "Reason",
-  reasonSchema,
-);

@@ -1,13 +1,9 @@
 {
   "compilerOptions": {
-    "outDir": "../dist",
-    "removeComments": true,
-    "types" : [
-      "node",
-      "jest"
-    ],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "outDir": "../dist",
+    "removeComments": true,
   },
   "exclude": [
     "node_modules"
