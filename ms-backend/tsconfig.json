@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "outDir": "./dist",
+    "removeComments": true,
+    "rootDir": "./src",
+  },
+  "exclude": [
+    "node_modules",
+  ]
+}
