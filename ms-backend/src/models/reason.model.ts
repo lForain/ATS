@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import { Typegoose, prop } from "typegoose";
+import { prop, Typegoose } from "../lib/typegoose";
 
 class ReasonType extends Typegoose {
   @prop({ required: true })
@@ -7,7 +7,7 @@ class ReasonType extends Typegoose {
 }
 
 export const ReasonModel = new ReasonType().getModelForClass(ReasonType, {
-  existingMongoose: mongoose,
   existingConnection: null,
+  existingMongoose: mongoose,
   schemaOptions: null,
 });
