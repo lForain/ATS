@@ -3,8 +3,8 @@ import { Reason } from "../models/reason.model";
 
 export default class ReasonController {
   public async read(req: Request, res: Response): Promise<void> {
-    const reasonFilter = req.body;
-    await Reason.find(reasonFilter).exec((err, reasons) => {
+    const reasonfilter = req.body && req.body.reasonDescription ? req.body : {};
+    Reason.find(reasonfilter, (err, reasons) => {
       try {
         res.send({
           data: reasons,
@@ -49,8 +49,9 @@ export default class ReasonController {
 
   public async delete(req: Request, res: Response): Promise<void> {
     try {
-      const query = req.body.reasonDescription;
-      await Reason.findOneAndRemove({ reasonDescription: query });
+      console.log(req.body)
+      const query = req.body.id;
+      await Reason.deleteOne({ _id: query });
       res.send({ status: true });
     } catch (err) {
       res.send({
