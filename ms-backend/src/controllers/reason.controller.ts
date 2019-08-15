@@ -49,7 +49,6 @@ export default class ReasonController {
 
   public async delete(req: Request, res: Response): Promise<void> {
     try {
-      console.log(req.body)
       const query = req.body.id;
       await Reason.deleteOne({ _id: query });
       res.send({ status: true });
