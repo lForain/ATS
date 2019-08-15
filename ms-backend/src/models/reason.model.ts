@@ -1,5 +1,5 @@
 import * as mongoose from "mongoose";
-import { prop, Typegoose } from "../lib/typegoose";
+import { prop, Typegoose } from "typegoose";
 
 class ReasonType extends Typegoose {
   @prop({ required: true })
