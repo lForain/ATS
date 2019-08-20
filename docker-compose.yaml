@@ -5,7 +5,7 @@ services:
     build:
       context: ./ms-backend
     volumes:
-      - './ms-backend/src:/app/src'
+      - './ms-backend/dist:/app/dist/'
     ports:
       - "5001:3000"
     depends_on:

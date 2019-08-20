@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "node dist/index.js",
-    "dev": "nodemon",
+    "dev": "nodemon --legacy-watch --watch .",
     "build": "tsc -p ./tsconfig.json"
   },
   "author": "",
