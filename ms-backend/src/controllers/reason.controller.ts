@@ -5,13 +5,12 @@ export default class ReasonController {
   public async read(req: Request, res: Response): Promise<void> {
     const reasonfilter = req.body && req.body.reasonDescription ? req.body : {};
     try {
-      Reason.find(reasonfilter, (err, reason) => {
-        res.send({
+      const reason =  await Reason.find(reasonfilter);
+      res.send({
           data: reason,
           message: "Reason(s) were successfully returned",
           status: true,
         });
-      });
     } catch (err) {
       res.send({
         message: err.message,
@@ -23,7 +22,7 @@ export default class ReasonController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const reason = req.body;
-      await Reason.create(reason)
+      await Reason.create(reason);
       res.send({ status: true });
     } catch (err) {
       res.send({
