@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest --coverage",
     "start": "node dist/index.js",
-    "dev": "nodemon --legacy-watch --watch .",
-    "build": "tsc -p ./tsconfig.json"
+    "build": "tsc -p ./tsconfig.json",
+    "dev": "nodemon --legacy-watch --watch ."
   },
   "author": "",
   "license": "ISC",
@@ -28,6 +28,11 @@
     "@types/jest": "^24.0.15",
     "@types/mongoose": "^4.7.18",
     "@types/node": "^12.6.8",
+    "gulp": "^4.0.2",
+    "gulp-filter": "^6.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1",
+    "gulp-watch": "^5.0.1",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
     "ts-jest": "^24.0.2",
