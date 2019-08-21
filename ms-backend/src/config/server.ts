@@ -1,0 +1,49 @@
+import * as bodyParser from "body-parser";
+import * as cookieParser from "cookie-parser";
+import * as express from "express";
+import * as mongoose from "mongoose";
+import * as logger from "morgan";
+import * as path from "path";
+import config from "./config";
+
+export default function() {
+  const app = express();
+
+  for (const model of config.globFiles(config.models)) {
+    require(path.resolve(model));
+  }
+
+  mongoose
+    .connect(config.mongodb, {
+      promiseLibrary: global.Promise,
+      useMongoClient: true,
+    })
+    .catch(() => {
+      console.log("Error connecting to mongo");
+    });
+
+  app.use(logger("dev"));
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(cookieParser());
+  app.use(express.static(path.join(__dirname, "../../src/public")));
+
+  for (const route of config.globFiles(config.routes)) {
+    console.log(route);
+    require(path.resolve(route)).default(app);
+  }
+
+  app.use(
+
+    (req: express.Request, res: express.Response, next: Function): void => {
+      const err: Error = new Error("Not Found");
+      next(err);
+    },
+  );
+
+  app.listen(config.port, () => {
+    console.log(`Running on ${config.port}`);
+  });
+
+  return app;
+}
