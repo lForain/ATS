@@ -13,10 +13,10 @@ export default function() {
     require(path.resolve(model));
   }
 
+  mongoose.set("useNewUrlParser", true);
   mongoose
     .connect(config.mongodb, {
       promiseLibrary: global.Promise,
-      useMongoClient: true,
     })
     .catch(() => {
       console.log("Error connecting to mongo");
