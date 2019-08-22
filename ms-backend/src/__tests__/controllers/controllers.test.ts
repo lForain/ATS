@@ -31,9 +31,7 @@ describe("index", () => {
       await reasonController.create(req, res);
 
       const result = res._getJSON();
-
       console.log(result);
-
       expect(result.status).toBe(false);
     });
   });
