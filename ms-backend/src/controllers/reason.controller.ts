@@ -20,18 +20,19 @@ class ReasonController {
   }
 
   public async create(req: Request, res: Response): Promise<void> {
+    const reason = req.body;
     try {
-      const reason = req.body;
       await Reason.create(reason);
-
-      res.json({ status: true });
-      // console.log({ok: res});
-    } catch (err) {      
+      res.send({
+        data: reason,
+        message: "Reason sucessfully created",
+        status: true,
+      });
+    } catch (err) {
       res.send({
         message: err.message,
         status: false,
       });
-      // console.log(res.send)
     }
   }
 
