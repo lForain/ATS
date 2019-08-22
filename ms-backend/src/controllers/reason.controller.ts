@@ -23,12 +23,15 @@ class ReasonController {
     try {
       const reason = req.body;
       await Reason.create(reason);
-      res.send({ status: true });
-    } catch (err) {
+
+      res.json({ status: true });
+      // console.log({ok: res});
+    } catch (err) {      
       res.send({
         message: err.message,
         status: false,
       });
+      // console.log(res.send)
     }
   }
 
