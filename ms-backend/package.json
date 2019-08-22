@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest --coverage --detectOpenHandles --forceExit",
     "start": "node dist/index.js",
-    "dev": "nodemon",
-    "build": "tsc -p src/tsconfig.json"
+    "build": "tsc -p ./tsconfig.json",
+    "dev": "nodemon --legacy-watch --watch ."
   },
   "author": "",
   "license": "ISC",
@@ -18,15 +18,21 @@
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "express": "^4.13.4",
-    "mongoose": "^4.11.1",
-    "morgan": "^1.9.1"
+    "mongoose": "^5.6.9",
+    "morgan": "^1.9.1",
+    "reflect-metadata": "^0.1.13",
+    "typegoose": "5.7.0"
   },
   "devDependencies": {
     "@types/express": "^4.0.36",
     "@types/jest": "^24.0.15",
-    "@types/mocha": "^5.2.7",
     "@types/mongoose": "^4.7.18",
     "@types/node": "^12.6.8",
+    "gulp": "^4.0.2",
+    "gulp-filter": "^6.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1",
+    "gulp-watch": "^5.0.1",
     "jest": "^24.8.0",
     "mock-express-request": "^0.2.2",
     "mock-express-response": "^0.2.2",
