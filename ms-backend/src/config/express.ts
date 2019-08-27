@@ -6,7 +6,7 @@ import * as logger from "morgan";
 import * as path from "path";
 import config from "./config";
 
-export default function() {
+export default function () {
   const app = express();
 
   for (const model of config.globFiles(config.models)) {
@@ -32,6 +32,11 @@ export default function() {
     console.log(route);
     require(path.resolve(route)).default(app);
   }
+
+  app.use((req, res, next) => {
+    res.setHeader("Content-Type", "application/json");
+    next();
+  }); 
 
   app.use(
     (req: express.Request, res: express.Response, next: Function): void => {

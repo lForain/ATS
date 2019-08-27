@@ -1,7 +1,7 @@
 import * as mongoose from "mongoose";
 import { prop, Typegoose } from "typegoose";
 
-class ReasonType extends Typegoose {
+export class ReasonType extends Typegoose {
   @prop({ required: true })
   private reasonDescription: string;
 }
