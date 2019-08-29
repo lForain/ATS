@@ -4,23 +4,6 @@ import { ReasonModel } from "../models/reason.model";
 const descriptionRegexCriteria = new RegExp(/\w{1,999}\s\w{1,999}\s\w{1,999}/);
 
 class ReasonController {
-  public async read(req: Request, res: Response): Promise<void> {
-    const reasonfilter = req.body && req.body.reasonDescription ? req.body : {};
-    try {
-      const data = await ReasonModel.find(reasonfilter);
-      res.send({
-        data,
-        message: "Reason(s) were successfully returned",
-        status: true,
-      });
-    } catch (err) {
-      res.send({
-        message: err.message,
-        status: false,
-      });
-    }
-  }
-
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const description = req.body.reasonDescription;
@@ -44,12 +27,45 @@ class ReasonController {
     }
   }
 
+  public async read(req: Request, res: Response): Promise<void> {
+    const reasonfilter = req.body && req.body.reasonDescription ? req.body : {};
+    try {
+      const data = await ReasonModel.find(reasonfilter);
+
+      console.log(data);
+
+      if (data.length === 0) {
+        throw new Error ("There isn't any reason with this description");
+      }
+
+      res.send({
+        data,
+        message: "Reason(s) were successfully returned",
+        status: true,
+      });
+    } catch (err) {
+      res.send({
+        message: err.message,
+        status: false,
+      });
+    }
+  }
+
   public async update(req: Request, res: Response): Promise<void> {
     try {
       const query = req.body.reasonDescription;
       const update = req.body.newReason;
-      await ReasonModel.updateOne({ reasonDescription: query }, { reasonDescription: update });
-      res.send({ status: true });
+      const data = await ReasonModel.updateOne({ reasonDescription: query }, { reasonDescription: update });
+
+      if ( data.nModified === 0) {
+        throw new Error("No reason to update match your request filter");
+      }
+
+      res.send({
+        data,
+        message: "Reason sucessfully updated",
+        status: true,
+      });
     } catch (err) {
       res.send({
         message: err.message,

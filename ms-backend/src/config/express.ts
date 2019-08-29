@@ -36,7 +36,7 @@ export default function () {
   app.use((req, res, next) => {
     res.setHeader("Content-Type", "application/json");
     next();
-  }); 
+  });
 
   app.use(
     (req: express.Request, res: express.Response, next: Function): void => {
