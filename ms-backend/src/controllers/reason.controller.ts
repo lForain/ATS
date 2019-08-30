@@ -32,8 +32,6 @@ class ReasonController {
     try {
       const data = await ReasonModel.find(reasonfilter);
 
-      console.log(data);
-
       if (data.length === 0) {
         throw new Error ("There isn't any reason with this description");
       }
@@ -57,7 +55,7 @@ class ReasonController {
       const update = req.body.newReason;
       const data = await ReasonModel.updateOne({ reasonDescription: query }, { reasonDescription: update });
 
-      if ( data.nModified === 0) {
+      if (data.nModified === 0) {
         throw new Error("No reason to update match your request filter");
       }
 
@@ -76,9 +74,18 @@ class ReasonController {
 
   public async delete(req: Request, res: Response): Promise<void> {
     try {
-      const query = req.body.id;
-      await ReasonModel.deleteOne({ _id: query });
-      res.send({ status: true });
+      const query = req.body._id;
+      const data = await ReasonModel.deleteOne({ _id: query });
+
+      if (data["deletedCount"] === 0) {
+        throw new Error("No reason to delete match your request");
+      }
+
+      res.send({
+        data,
+        message: "Reason sucessfully deleted",
+        status: true,
+      });
     } catch (err) {
       res.send({
         message: err.message,

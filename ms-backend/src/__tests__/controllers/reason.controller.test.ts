@@ -14,6 +14,8 @@ mockgoose.prepareStorage()
     mongoose.connect("mongodb://db:27017/OMT");
   });
 
+let idAux = null;
+
 describe("index", () => {
   describe("when Reason Create Post route was called", () => {
     it("should return status false and the respective error message when request description is null", async () => {
@@ -68,6 +70,23 @@ describe("index", () => {
         expect(reason).toContainKeys([ "_id", "__v" , "reasonDescription"]);
       }
     });
+
+    it("should return status false and a message when ReasonModel throws an exception", async () => {
+      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: "new reason" } });
+      const res = new MockExpressResponse();
+      const spy = jest.spyOn(ReasonModel, "create").mockImplementation(() => {
+        throw new Error("Custom Error");
+      });
+
+      await reasonController.create(req, res);
+      const result = res._getJSON();
+
+      expect(spy).toBeCalled();
+      expect(result.status).toBe(false);
+      expect(result.message).toInclude("Custom Error");
+
+      spy.mockRestore();
+    });
   });
 
   describe("when Reason Read Get route was called", () => {
@@ -95,6 +114,9 @@ describe("index", () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude("Reason(s) were successfully returned");
       for (const reason of result.data) {
+        expect(reason).toContainKeys(["reasonDescription", "_id", "__v"]);
+      }
+      for (const reason of result.data) {
         expect(reason).toContainEntry(["reasonDescription", "three words here"]);
       }
     });
@@ -106,10 +128,25 @@ describe("index", () => {
       await reasonController.read(req, res);
       const result = res._getJSON();
 
-      console.log(result);
-
       expect(result.message).toInclude("There isn't any reason with this description");
       expect(result.status).toBe(false);
+    });
+
+    it("should return status false and a message when ReasonModel throws an exception", async () => {
+      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: "new reason" } });
+      const res = new MockExpressResponse();
+      const spy = jest.spyOn(ReasonModel, "find").mockImplementation(() => {
+        throw new Error("Custom Error");
+      });
+
+      await reasonController.read(req, res);
+      const result = res._getJSON();
+
+      expect(spy).toBeCalled();
+      expect(result.status).toBe(false);
+      expect(result.message).toInclude("Custom Error");
+
+      spy.mockRestore();
     });
   });
 
@@ -135,9 +172,15 @@ describe("index", () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude("Reason sucessfully updated");
       expect(result.data).toContainKeys(["n", "nModified", "ok"]);
+      const req2 = new MockExpressRequest();
+      const res2 = new MockExpressResponse();
+
+      await reasonController.read(req2, res2);
+      const result2 = res2._getJSON();
+      idAux = result2.data[0]._id;
     });
 
-    it("should return status false when ReasonModel throws an exception", async () => {
+    it("should return status false and a message when ReasonModel throws an exception", async () => {
       const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: "new reason" } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(ReasonModel, "updateOne").mockImplementation(() => {
@@ -150,6 +193,49 @@ describe("index", () => {
       expect(spy).toBeCalled();
       expect(result.status).toBe(false);
       expect(result.message).toInclude("Custom Error");
+
+      spy.mockRestore();
+    });
+  });
+
+  describe("when Reason Delete route was called", () => {
+    it("should return status false when there isn't any ReasonType object that matches the request", async () => {
+      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me" } });
+      const res = new MockExpressResponse();
+
+      await reasonController.delete(req, res);
+      const result = res._getJSON();
+
+      expect(result.status).toBe(false);
+      expect(result.message).toInclude("No reason to delete match your request");
+    });
+
+    it("should return status true and the query with a message, when a match/delete occurs", async () => {
+      const req = new MockExpressRequest({ body: { _id: idAux } });
+      const res = new MockExpressResponse();
+
+      await reasonController.delete(req, res);
+      const result = res._getJSON();
+
+      expect(result.status).toBe(true);
+      expect(result.message).toInclude("Reason sucessfully deleted");
+    });
+
+    it("should return status false and a message when ReasonModel throws an exception", async () => {
+      const req = new MockExpressRequest({ body: { _id: idAux } });
+      const res = new MockExpressResponse();
+      const spy = jest.spyOn(ReasonModel, "updateOne").mockImplementation(() => {
+        throw new Error("Custom Error");
+      });
+
+      await reasonController.update(req, res);
+      const result = res._getJSON();
+
+      expect(spy).toBeCalled();
+      expect(result.status).toBe(false);
+      expect(result.message).toInclude("Custom Error");
+
+      spy.mockRestore();
     });
   });
 });
