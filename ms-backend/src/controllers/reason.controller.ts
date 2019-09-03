@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { ReasonModel } from "../models/reason.model";
+import { Request, Response } from 'express';
+import { ReasonModel } from '../models/reason.model';
 
 const descriptionRegexCriteria = new RegExp(/\w{1,999}\s\w{1,999}\s\w{1,999}/);
 
@@ -14,13 +14,13 @@ class ReasonController {
       }
 
       const data = await ReasonModel.create(req.body);
-      res.send({
+      res.json({
         data,
-        message: "Reason sucessfully created",
+        message: 'Reason sucessfully created',
         status: true,
       });
     } catch (err) {
-      res.send({
+      res.json({
         message: err.message,
         status: false,
       });
@@ -36,9 +36,9 @@ class ReasonController {
         throw new Error ("There isn't any reason with this description");
       }
 
-      res.send({
+      res.json({
         data,
-        message: "Reason(s) were successfully returned",
+        message: 'Reason(s) were successfully returned',
         status: true,
       });
     } catch (err) {
@@ -56,12 +56,12 @@ class ReasonController {
       const data = await ReasonModel.updateOne({ reasonDescription: query }, { reasonDescription: update });
 
       if (data.nModified === 0) {
-        throw new Error("No reason to update match your request filter");
+        throw new Error('No reason to update match your request filter');
       }
 
       res.send({
         data,
-        message: "Reason sucessfully updated",
+        message: 'Reason sucessfully updated',
         status: true,
       });
     } catch (err) {
@@ -77,13 +77,13 @@ class ReasonController {
       const query = req.body._id;
       const data = await ReasonModel.deleteOne({ _id: query });
 
-      if (data["deletedCount"] === 0) {
-        throw new Error("No reason to delete match your request");
+      if (data['deletedCount'] === 0) {
+        throw new Error('No reason to delete match your request');
       }
 
       res.send({
         data,
-        message: "Reason sucessfully deleted",
+        message: 'Reason sucessfully deleted',
         status: true,
       });
     } catch (err) {
