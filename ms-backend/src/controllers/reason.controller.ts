@@ -42,7 +42,7 @@ class ReasonController {
         status: true,
       });
     } catch (err) {
-      res.send({
+      res.json({
         message: err.message,
         status: false,
       });
@@ -59,13 +59,13 @@ class ReasonController {
         throw new Error('No reason to update match your request filter');
       }
 
-      res.send({
+      res.json({
         data,
         message: 'Reason sucessfully updated',
         status: true,
       });
     } catch (err) {
-      res.send({
+      res.json({
         message: err.message,
         status: false,
       });
@@ -81,13 +81,13 @@ class ReasonController {
         throw new Error('No reason to delete match your request');
       }
 
-      res.send({
+      res.json({
         data,
         message: 'Reason sucessfully deleted',
         status: true,
       });
     } catch (err) {
-      res.send({
+      res.json({
         message: err.message,
         status: false,
       });
