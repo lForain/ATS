@@ -1,5 +1,5 @@
-import * as mongoose from "mongoose";
-import { prop, Typegoose } from "typegoose";
+import * as mongoose from 'mongoose';
+import { prop, Typegoose } from 'typegoose';
 
 class HHType extends Typegoose {
   @prop({ required: true })
