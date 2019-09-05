@@ -4,7 +4,8 @@
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest --coverage --detectOpenHandles --forceExit",
+    "test:watch": "jest --watch --coverage --detectOpenHandles --forceExit",
     "start": "node dist/index.js",
     "build": "tsc -p ./tsconfig.json",
     "dev": "nodemon --legacy-watch --watch ."
@@ -34,6 +35,9 @@
     "gulp-typescript": "^5.0.1",
     "gulp-watch": "^5.0.1",
     "jest": "^24.8.0",
+    "jest-extended": "^0.11.2",
+    "mock-express-request": "^0.2.2",
+    "mock-express-response": "^0.2.2",
     "mock-mongoose": "^7.4.0-r2",
     "nodemon": "^1.19.1",
     "supertest": "^4.0.2",

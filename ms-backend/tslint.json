@@ -4,6 +4,9 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {"no-var-requires": false},
+    "rules": {
+      "no-var-requires": false,
+      "quotemark": [true, "single", "avoid-escape", "avoid-template"]
+    },
     "rulesDirectory": []
 }
