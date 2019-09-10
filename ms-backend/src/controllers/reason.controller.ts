@@ -6,7 +6,7 @@ const descriptionRegexCriteria = new RegExp(/\w{1,999}\s\w{1,999}\s\w{1,999}/);
 class ReasonController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
-      const description = req.body.reasonDescription;
+      const description = req.body.description;
       const test = descriptionRegexCriteria.test(description);
 
       if (!test) {
@@ -28,7 +28,7 @@ class ReasonController {
   }
 
   public async read(req: Request, res: Response): Promise<void> {
-    const reasonfilter = req.body && req.body.reasonDescription ? req.body : {};
+    const reasonfilter = req.body && req.body.description ? req.body : {};
     try {
       const data = await ReasonModel.find(reasonfilter);
 
@@ -51,9 +51,9 @@ class ReasonController {
 
   public async update(req: Request, res: Response): Promise<void> {
     try {
-      const query = req.body.reasonDescription;
+      const query = req.body.description;
       const update = req.body.newReason;
-      const data = await ReasonModel.updateOne({ reasonDescription: query }, { reasonDescription: update });
+      const data = await ReasonModel.updateOne({ description: query }, { description: update });
 
       if (data.nModified === 0) {
         throw new Error('No reason to update match your request filter');

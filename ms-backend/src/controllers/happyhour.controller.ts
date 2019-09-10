@@ -4,23 +4,50 @@ import { HHModel } from '../models/happyhour.model';
 const descriptionRegexCriteria = new RegExp(/\w{1,999}\s\w{1,999}\s\w{1,999}/);
 const localRegexCriteria = new RegExp(/\w{1,99}/);
 
+async function validateHHcreate(happyhour) {
+  const { eventDate, description, creationDate } = happyhour;
+  const messages = [];
+  const descriptionTest = descriptionRegexCriteria.test(happyhour.description);
+  const localTest = localRegexCriteria.test(happyhour.local);
+
+  if (!descriptionTest) {
+    messages.push("Description does not contain a text value or isn't longer than two words");
+  }
+
+  if (!localTest) {
+    messages.push('Insert a valid local name');
+  }
+
+  const dateExists = await HHModel.find({ eventDate });
+
+  if (dateExists.length > 0) {
+    messages.push('Already exists a happy hour scheculed to this date');
+  }
+
+  const descriptionExists = await HHModel.find({ description });
+
+  if (descriptionExists.length > 0) {
+    messages.push('Already exists a happy hour with this description');
+  }
+
+  if (creationDate.getTime() > eventDate.getTime()) {
+    messages.push("You should enter an event date that's after the actual date");
+  }
+
+  return messages;
+}
+
 class HHController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const happyhour = req.body;
-      const descriptionTest = descriptionRegexCriteria.test(happyhour.description);
-      const localTest = localRegexCriteria.test(happyhour.local);
+      happyhour.creationDate = new Date();
+      happyhour.eventDate = new Date(happyhour.eventDate);
 
-      if (!descriptionTest) {
-        throw new Error("Description does not contain a text value or isn't longer than two words");
-      }
+      const errorMessages = await validateHHcreate(happyhour);
 
-      if (!localTest) {
-        throw new Error('Insert a valid local name');
-      }
-
-      if (happyhour.creationDate.getTime > happyhour.eventDate.getTime) {
-        throw new Error("You should enter an event date that's after the actual date");
+      if (errorMessages.length > 0) {
+        throw new Error(`Some error(s) found: ${errorMessages}`);
       }
 
       const data = await HHModel.create(happyhour);

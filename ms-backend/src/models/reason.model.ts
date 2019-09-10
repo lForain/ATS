@@ -3,7 +3,7 @@ import { prop, Typegoose } from 'typegoose';
 
 export class ReasonType extends Typegoose {
   @prop({ required: true })
-  private reasonDescription: string;
+  private description: string;
 }
 
 export const ReasonModel = new ReasonType().getModelForClass(ReasonType, {

@@ -19,7 +19,7 @@ let idAux = null;
 describe('index', () => {
   describe('when Reason Create Post route was called', () => {
     it('should return status false and the respective error message when request description is null', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: null } });
+      const req = new MockExpressRequest({ body: { description: null } });
       const res = new MockExpressResponse();
 
       await reasonController.create(req, res);
@@ -30,9 +30,9 @@ describe('index', () => {
     });
 
     it("should return status false and a message when description isn't longer than two words", async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: 'word' } });
+      const req = new MockExpressRequest({ body: { description: 'word' } });
       const res = new MockExpressResponse();
-      const req2 = new MockExpressRequest({ body: { reasonDescription: 'two words ' } });
+      const req2 = new MockExpressRequest({ body: { description: 'two words ' } });
       const res2 = new MockExpressResponse();
 
       await reasonController.create(req, res);
@@ -48,9 +48,9 @@ describe('index', () => {
     });
 
     it('should return status true with the respective message when it is a valid description', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: 'three words here' } });
+      const req = new MockExpressRequest({ body: { description: 'three words here' } });
       const res = new MockExpressResponse();
-      const req2 = new MockExpressRequest({ body: { reasonDescription: 'four words here bro' } });
+      const req2 = new MockExpressRequest({ body: { description: 'four words here bro' } });
       const res2 = new MockExpressResponse();
 
       await reasonController.create(req, res);
@@ -61,18 +61,18 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Reason sucessfully created');
       for (const reason of result.data) {
-        expect(reason).toContainKeys([ '_id', '__v' , 'reasonDescription']);
+        expect(reason).toContainKeys([ '_id', '__v' , 'description']);
       }
 
       expect(result2.status).toBe(true);
       expect(result2.message).toInclude('Reason sucessfully created');
       for (const reason of result.data) {
-        expect(reason).toContainKeys([ '_id', '__v' , 'reasonDescription']);
+        expect(reason).toContainKeys([ '_id', '__v' , 'description']);
       }
     });
 
     it('should return status false and a message when ReasonModel throws an exception', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: "don't find me", newReason: 'new reason' } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(ReasonModel, 'create').mockImplementation(() => {
         throw new Error('Custom Error');
@@ -100,12 +100,12 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Reason(s) were successfully returned');
       for (const reason of result.data) {
-        expect(reason).toContainKeys(['reasonDescription', '_id', '__v']);
+        expect(reason).toContainKeys(['description', '_id', '__v']);
       }
     });
 
     it('should return status true, a message and the reasons that got the match when it occurs', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: 'three words here' } });
+      const req = new MockExpressRequest({ body: { description: 'three words here' } });
       const res = new MockExpressResponse();
 
       await reasonController.read(req, res);
@@ -114,15 +114,15 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Reason(s) were successfully returned');
       for (const reason of result.data) {
-        expect(reason).toContainKeys(['reasonDescription', '_id', '__v']);
+        expect(reason).toContainKeys(['description', '_id', '__v']);
       }
       for (const reason of result.data) {
-        expect(reason).toContainEntry(['reasonDescription', 'three words here']);
+        expect(reason).toContainEntry(['description', 'three words here']);
       }
     });
 
     it('should return status false and the respective message when no reason is found', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: 'unexpected reason description' } });
+      const req = new MockExpressRequest({ body: { description: 'unexpected reason description' } });
       const res = new MockExpressResponse();
 
       await reasonController.read(req, res);
@@ -133,7 +133,7 @@ describe('index', () => {
     });
 
     it('should return status false and a message when ReasonModel throws an exception', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: "don't find me", newReason: 'new reason' } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(ReasonModel, 'find').mockImplementation(() => {
         throw new Error('Custom Error');
@@ -152,7 +152,7 @@ describe('index', () => {
 
   describe('when Reason Update Put route was called', () => {
     it("should return status false when there isn't any ReasonType object that contain the filter", async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: "don't find me", newReason: 'new reason' } });
       const res = new MockExpressResponse();
 
       await reasonController.update(req, res);
@@ -163,7 +163,7 @@ describe('index', () => {
     });
 
     it('should return true and and the query with a message when a match/update occurs', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: 'three words here', newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: 'three words here', newReason: 'new reason' } });
       const res = new MockExpressResponse();
 
       await reasonController.update(req, res);
@@ -181,7 +181,7 @@ describe('index', () => {
     });
 
     it('should return status false and a message when ReasonModel throws an exception', async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me", newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: "don't find me", newReason: 'new reason' } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(ReasonModel, 'updateOne').mockImplementation(() => {
         throw new Error('Custom Error');
@@ -200,7 +200,7 @@ describe('index', () => {
 
   describe('when Reason Delete route was called', () => {
     it("should return status false when there isn't any ReasonType object that matches the request", async () => {
-      const req = new MockExpressRequest({ body: { reasonDescription: "don't find me" } });
+      const req = new MockExpressRequest({ body: { description: "don't find me" } });
       const res = new MockExpressResponse();
 
       await reasonController.delete(req, res);
