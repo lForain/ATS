@@ -14,7 +14,6 @@ class HHType extends Typegoose {
   @prop({ required: true })
   private description: string;
 
-  @prop({ required: true })
   private usersPresent: string[];
 }
 
