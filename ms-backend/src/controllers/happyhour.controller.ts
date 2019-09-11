@@ -2,7 +2,7 @@ import { Request , Response } from 'express';
 import { HHModel } from '../models/happyhour.model';
 
 const descriptionRegexCriteria = new RegExp(/\w{1,999}\s\w{1,999}\s\w{1,999}/);
-const localRegexCriteria = new RegExp(/\w{1,99}/);
+const localRegexCriteria = new RegExp(/\w{2,99}/);
 
 async function validateHHcreate(happyhour) {
   const { eventDate, description, creationDate } = happyhour;
@@ -41,7 +41,7 @@ class HHController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const happyhour = req.body;
-      happyhour.creationDate = new Date();
+      happyhour.creationDate = new Date(Date.now());
       happyhour.eventDate = new Date(happyhour.eventDate);
 
       const errorMessages = await validateHHcreate(happyhour);
@@ -76,7 +76,7 @@ class HHController {
 
       res.json({
         data,
-        message: 'Happy hour(s) were successfully returned',
+        message: 'Happy hour(s) successfully returned',
         status: true,
       });
     } catch (err) {

@@ -133,7 +133,7 @@ describe('index', () => {
     });
 
     it('should return status false and a message when ReasonModel throws an exception', async () => {
-      const req = new MockExpressRequest({ body: { description: "don't find me", newReason: 'new reason' } });
+      const req = new MockExpressRequest({ body: { description: "don't find me" } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(ReasonModel, 'find').mockImplementation(() => {
         throw new Error('Custom Error');
