@@ -11,7 +11,7 @@ async function validateHHcreate(happyhour) {
   const localTest = localRegexCriteria.test(happyhour.local);
 
   if (!descriptionTest) {
-    messages.push("Description does not contain a text value or isn't longer than two words");
+    messages.push('Description does not contain a text value or isn`t longer than two words');
   }
 
   if (!localTest) {
@@ -31,7 +31,7 @@ async function validateHHcreate(happyhour) {
   }
 
   if (creationDate.getTime() > eventDate.getTime()) {
-    messages.push("You should enter an event date that's after the actual date");
+    messages.push('You should enter an event date that`s after the actual date');
   }
 
   return messages;

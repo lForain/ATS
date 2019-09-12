@@ -35,10 +35,10 @@ describe('index', () => {
       const result = res._getJSON();
 
       expect(result.status).toBe(false);
-      expect(result.message).toInclude("Description does not contain a text value or isn't longer than two words");
+      expect(result.message).toInclude('Some error(s) found: Description does not contain a text value or isn`t longer than two words');
     });
 
-    it("should return status false and a message when description isn't longer than two words", async () => {
+    it('should return status false and a message when description isn`t longer than two words', async () => {
       const req = new MockExpressRequest({
         body: {
           description: 'word',
@@ -64,10 +64,10 @@ describe('index', () => {
       const result2 = res2._getJSON();
 
       expect(result.status).toBe(false);
-      expect(result.message).toInclude("Description does not contain a text value or isn't longer than two words");
+      expect(result.message).toInclude('Some error(s) found: Description does not contain a text value or isn`t longer than two words');
 
       expect(result2.status).toBe(false);
-      expect(result2.message).toInclude("Description does not contain a text value or isn't longer than two words");
+      expect(result2.message).toInclude('Some error(s) found: Description does not contain a text value or isn`t longer than two words');
     });
 
     it('should return status false and a message when the request dont got a valid local', async () => {
@@ -102,7 +102,7 @@ describe('index', () => {
           description: 'happy hour do bruno',
           eventDate: 'October 05 2019 19:00',
           local: 'voluntários da pátria',
-          usersPresent: null,
+          usersPresent: [],
         },
       });
       const res = new MockExpressResponse();
@@ -116,7 +116,8 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Happy hour sucessfully created');
       for (const event of result.data) {
-        expect(event).toContainKeys(['_id',
+        expect(event).toContainKeys([
+          '_id',
           '__v',
           'description',
           'local',
@@ -128,7 +129,8 @@ describe('index', () => {
       expect(result2.status).toBe(true);
       expect(result2.message).toInclude('Happy hour sucessfully created');
       for (const event of result.data) {
-        expect(event).toContainKeys(['_id',
+        expect(event).toContainKeys([
+          '_id',
           '__v',
           'description',
           'local',
@@ -189,14 +191,14 @@ describe('index', () => {
       const result = res._getJSON();
 
       expect(result.status).toBe(false);
-      expect(result.message).toInclude('You should enter an event date after the actual date');
+      expect(result.message).toInclude('Some error(s) found: You should enter an event date that`s after the actual date');
     });
 
-    it('should return status false and a message when ReasonModel throws an exception', async () => {
+    it('should return status false and a message when HHModel throws an exception', async () => {
       const req = new MockExpressRequest({
         body: {
-          description: 'happy hour do forain',
-          eventDate: 'September 05 2019 18:30',
+          description: 'happy hour do tom',
+          eventDate: 'September 09 2019 18:30',
           local: 'voluntários da pátria',
           usersPresent: ['Forain', 'Tom', 'Bruno'],
         },
@@ -228,7 +230,8 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Happy hour(s) successfully returned');
       for (const event of result.data) {
-        expect(event).toContainKeys(['_id',
+        expect(event).toContainKeys([
+          '_id',
           '__v',
           'description',
           'local',
@@ -248,7 +251,8 @@ describe('index', () => {
       expect(result.status).toBe(true);
       expect(result.message).toInclude('Happy hour(s) successfully returned');
       for (const event of result.data) {
-        expect(event).toContainKeys(['_id',
+        expect(event).toContainKeys([
+          '_id',
           '__v',
           'description',
           'local',
@@ -262,7 +266,7 @@ describe('index', () => {
     });
 
     it('should return status false and the respective message when no happy hour is found', async () => {
-      const req = new MockExpressRequest({ body: { description: 'unexpected reason description' } });
+      const req = new MockExpressRequest({ body: { description: 'unexpected happy hour description' } });
       const res = new MockExpressResponse();
 
       await HHController.read(req, res);
@@ -273,7 +277,7 @@ describe('index', () => {
     });
 
     it('should return status false and a message when HHModel throws an exception', async () => {
-      const req = new MockExpressRequest({ body: { description: "don't find me" } });
+      const req = new MockExpressRequest({ body: { description: 'don`t find me' } });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(HHModel, 'find').mockImplementation(() => {
         throw new Error('Custom Error');
@@ -291,7 +295,7 @@ describe('index', () => {
   });
 
   describe('when Happy Hour Update Put route was called', () => {
-    it("should return status false when there isn't any HHType object that contain the filter", async () => {
+    it('should return status false when there isn`t any HHType object that contain the filter', async () => {
       const req = new MockExpressRequest({
         body: {
           queryKey: 'description', queryValue: 'unexpected description',
@@ -311,8 +315,8 @@ describe('index', () => {
       const req = new MockExpressRequest({
         body: {
           queryKey: 'description', queryValue: 'happy hour do bruno',
-          updateKey: 'usersPresent', updateValue: ['Forain', 'Bruno']
-        }
+          updateKey: 'usersPresent', updateValue: ['Forain', 'Bruno'],
+        },
       });
       const res = new MockExpressResponse();
 
@@ -334,8 +338,8 @@ describe('index', () => {
       const req = new MockExpressRequest({
         body: {
           queryKey: 'description', queryValue: 'happy hour do bruno',
-          updateKey: 'usersPresent', updateValue: null
-        }
+          updateKey: 'usersPresent', updateValue: null,
+        },
       });
       const res = new MockExpressResponse();
       const spy = jest.spyOn(HHModel, 'updateOne').mockImplementation(() => {
@@ -353,9 +357,9 @@ describe('index', () => {
     });
   });
 
-  describe('when Reason Delete route was called', () => {
-    it("should return status false when there isn't any HHType object that matches the request", async () => {
-      const req = new MockExpressRequest({ body: { description: "don't find me" } });
+  describe('when Happy Hour Delete route was called', () => {
+    it('should return status false when there isn`t any HHType object that matches the request', async () => {
+      const req = new MockExpressRequest({ body: { description: 'don`t find me' } });
       const res = new MockExpressResponse();
 
       await HHController.delete(req, res);
