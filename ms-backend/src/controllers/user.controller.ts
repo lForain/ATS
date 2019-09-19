@@ -6,7 +6,6 @@ const emailRegexCriteria = new RegExp(/\w{1,999}/);
 const pwRegexCriteria = new RegExp(/\w{1,999}/);
 const phoneRegexCriteria = new RegExp(/\w{1,999}/);
 
-
 async function validateUser(user){
   const { name, email, password, phone } = user;
   const messages = [];
@@ -38,6 +37,8 @@ class UserController {
   public async create(req: Request, res: Response): Promise<void> {
     try {
       const user = req.body;
+
+      user.birthDate = new Date(user.birthDate);
       const errorMessages = await validateUser(user);
 
       if (errorMessages.length > 0) {
@@ -84,8 +85,7 @@ class UserController {
   public async update(req: Request, res: Response): Promise<void> {
     try {
       const { queryKey, queryValue, updateKey, updateValue } = req.body;
-
-      const data = await ReasonModel.updateOne( queryKey: queryValue ,  updateKey: updateValue );
+      const data = await UserModel.updateOne({ [queryKey]: queryValue }, { [updateKey]: updateValue });
 
       if (data.nModified === 0) {
         throw new Error('No user to update match your request filter');

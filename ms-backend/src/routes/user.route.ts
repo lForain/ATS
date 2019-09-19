@@ -1,5 +1,5 @@
 import { Express } from 'express';
-import UserController from '../controllers/reason.controller';
+import UserController from '../controllers/user.controller';
 
 export default class UserRoute {
   constructor(app: Express) {
