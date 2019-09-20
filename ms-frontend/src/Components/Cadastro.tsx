@@ -36,7 +36,7 @@ class Cadastro extends Component{
                         <div className="row">
                             
                             <div className="input-field col offset-s1 s5">
-                                <label htmlFor="telefone">Telefone</label>
+                                <label htmlFor="phone">Telefone</label>
                                 <input name="phone" type="number" className="validate" onChange={this.escutadorDeInput}/>   
                             </div>
 
