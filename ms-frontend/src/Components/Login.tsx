@@ -1,7 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize';
-import ';'
+
 
 class Login extends React.Component{
 
@@ -24,16 +24,17 @@ class Login extends React.Component{
 
         return(
             <div className="row">
-                <form className="col s12">
                 <div className="col offset-s2">
                     <h2> Login: </h2>
                 </div>
 
+                <form className="col s12">
+                
                 <div className="row">
 
                     <div className="input-field col s6 offset-s3">
                     <input name="email" id="email" type="email" className="validate" onChange={ this.inputListener } />
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email">E-mail</label>
                     </div>
                 </div>
 
