@@ -63,7 +63,7 @@ class Cadastro extends Component{
 
                             <div className="input-field col s5">
                                 <label htmlFor="endereco">Endereço</label>
-                                <input name="adress" type="text" className="validate" onChange={this.escutadorDeInput}/> 
+                                <input name="adress" type="text" className="validate" onChange={this.inputListener}/> 
                             </div>
                             
                         </div>
