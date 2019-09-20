@@ -1,6 +1,7 @@
 import React from 'react';
 import 'materialize-css/dist/css/materialize.min.css';
 import 'materialize-css/dist/js/materialize';
+import Cadastro from './Cadastro';
 
 
 class Login extends React.Component{
@@ -54,6 +55,9 @@ class Login extends React.Component{
                 </div>
                 
                 </form>
+                <br/>
+                <br/>
+                <Cadastro/>
             </div>
         )
 

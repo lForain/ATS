@@ -2,16 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './Assets/css//index.css';
 import Cabecalho from './Components/Cabecalho';
-// import Login from './Components/Login';
-// import Cadastro from './Components/Cadastro';
+import Login from './Components/Login';
 import Profile from './Components/Profile';
-// import SolicitarOrcamento from './Components/SolicitarOrcamento';
+import SolicitarOrcamento from './Components/SolicitarOrcamento';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
     <div>
-        <Cabecalho />
-        <Profile />
+        <BrowserRouter>
+            <Cabecalho />
+            <Switch>
+                <Route path="/login" component={Login}></Route>
+                <Route path="/perfil" component={Profile}></Route>
+                <Route path="/orcamento" component={SolicitarOrcamento}></Route>
+                <Route path="*"></Route>
+            </Switch>
+        </BrowserRouter>
         
     </div>, document.getElementById('root'));
 
