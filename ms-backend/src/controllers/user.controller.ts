@@ -106,7 +106,7 @@ class UserController {
 
   public async delete(req: Request, res: Response): Promise<void> {
     try {
-      const data = await UserModel.deleteOne({ _id: req.body,_id });
+      const data = await UserModel.deleteOne({ _id: req.body._id });
 
       if (data['deletedCount'] === 0) {
         throw new Error('No user to delete match your request');

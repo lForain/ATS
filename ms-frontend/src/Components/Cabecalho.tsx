@@ -2,6 +2,7 @@ import React from 'react';
 import logo from '../logo.svg';
 import 'materialize-css/dist/css/materialize.min.css';
 import '../Assets/css/App.css';
+import { Link } from 'react-router-dom';
 
 export default function Cabecalho (){
     return (
@@ -9,11 +10,11 @@ export default function Cabecalho (){
             <div className="nav-wrapper black">
                 <img src={logo} className="left logo-container" alt="logo" />
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
-                    <li><a href="sass.html">Home</a></li>
-                    <li><a href="badges.html">Minhas Tatuagens</a></li>
-                    <li><a href="collapsible.html">Tattoos</a></li>
-                    <li><a href="collapsible.html">Contato</a></li>
-                    <li><a href="collapsible.html">Loja</a></li>
+                    <li><Link to="/"><span>Home</span></Link></li>
+                    <li><Link to="/orcamento"><span>Minhas Tatuagens</span></Link></li>
+                    <li><Link to="/"><span>Tattoos</span></Link></li>
+                    <li><Link to="/"><span>Contato</span></Link></li>
+                    <li><Link to="/"><span>Loja</span></Link></li>
                 </ul>
                 <div className="right row">
                     <div className="col s18" >
@@ -26,7 +27,7 @@ export default function Cabecalho (){
                 </div>
                 <div className="right row">
                     <div className="col s12" >
-                        <a href="login.html">Login</a>
+                        <Link to="/login"><span>Login</span></Link>
                     </div>
                 </div>          
             </div>

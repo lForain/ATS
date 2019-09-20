@@ -30,18 +30,17 @@ class Cadastro extends Component{
 
     render(){
         return(
-            <div>
-                <h2>Cadastre-se</h2>
+            <div className="row">
+                <div className="col offset-s2">  <h2>Cadastre-se: </h2> </div>
+
                 <div className="row">
                     <form className="col s12" onSubmit={this.onSubmit}>
                         <div className="row">
-                            <div className="input-field col s12">
+                            <div className="input-field col offset-s1 s5">
                                 <label htmlFor="name">Nome</label>
                                 <input name="name" ref="name" type="text" className="validate" onChange={this.inputListener}/>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="input-field col s6">
+                            <div className="input-field col s5">
                             <label htmlFor="email">E-mail</label>
                                 <input name="email" type="email" className="validate" onChange={this.inputListener}/>
                             </div>
@@ -49,19 +48,27 @@ class Cadastro extends Component{
                                 <label htmlFor="telefone">Telefone</label>
                                 <input name="phone" type="number" className="validate" onChange={this.inputListener}/>   
                             </div>
+
+                            <div className="input-field col s5">
+                                <label htmlFor="dtNascimento">Data Nascimento</label>
+                                <input name="birthDate" type="text" className="datepicker"/>   
+                            </div>
+
                         </div>
                         <div className="row">
-                            <div className="input-field col s6">
+                            <div className="input-field col offset-s1 s5">
                                 <label htmlFor="cpf">CPF</label>
                                 <input name="cpf" type="number" className="validate" onChange={this.inputListener}/>   
                             </div>
-                            <div className="input-field col s6">
-                                <label htmlFor="dtNascimento">Data de Nascimento</label>
-                                <input name="birthDate" type="text" className="datepicker"/>   
+
+                            <div className="input-field col s5">
+                                <label htmlFor="endereco">Endereço</label>
+                                <input name="adress" type="text" className="validate" onChange={this.escutadorDeInput}/> 
                             </div>
+                            
                         </div>
                         <div className="row">
-                            <div className="input-field col s6">
+                            <div className="input-field col offset-s1 s5">
                                 <label htmlFor="senha">Senha</label>
                                 <input name="password" type="password" className="validate" onChange={this.inputListener}/>
                             </div>
