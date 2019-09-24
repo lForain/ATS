@@ -47,6 +47,8 @@ class UserController {
 
       const data = await UserModel.create(user);
 
+      res.setHeader('Access-Control-Allow-Origin', '*');
+
       res.json({
         data,
         message: 'User sucessfully created',
