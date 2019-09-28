@@ -44,7 +44,7 @@ class Cadastro extends Component{
                             <label htmlFor="email">E-mail</label>
                                 <input name="email" type="email" className="validate" onChange={this.inputListener}/>
                             </div>
-                            <div className="input-field col s6">
+                            <div className="input-field col offset-s1 s5">
                                 <label htmlFor="telefone">Telefone</label>
                                 <input name="phone" type="number" className="validate" onChange={this.inputListener}/>   
                             </div>
@@ -72,18 +72,18 @@ class Cadastro extends Component{
                                 <label htmlFor="senha">Senha</label>
                                 <input name="password" type="password" className="validate" onChange={this.inputListener}/>
                             </div>
-                            <div className="input-field col s6">
+                            <div className="input-field col s5">
                                 <label htmlFor="confSenha">Confirme sua senha</label>
                                 <input name="confSenha" type="password" className="validate" onChange={this.inputListener}/>
                             </div>
                         </div>
                         <div className="row">
-                            <div className="input-field col s12">
+                            <div className="input-field col offset-s1 s10">
                                 <label htmlFor="endereco">Endereço</label>
                                 <input name="adress" type="text" className="validate" onChange={this.inputListener}/> 
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row col offset-s1">
                             <button type="submit" value="submit form" className="waves-effect waves-light btn black">Cadastrar</button>
                         </div>
                     </form>
