@@ -1,8 +1,8 @@
 import React from 'react'; 
-// import Cabecalho from './Cabecalho';
 import 'materialize-css/dist/js/materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 // import { throwStatement } from '@babel/types';
+import $ from 'jquery';
 
 
 class SolicitarOrcamento extends React.Component {
@@ -33,51 +33,99 @@ class SolicitarOrcamento extends React.Component {
         this.setState({
             [name]: value
         })
-    }
+    } 
+
+
 
     render(){
         return (
+
             <div className="row">
+                
+                {/* Adicionando link para usar o icone do lapis no textArea */}
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+                
                 <div className="col offset-s1"> <h2> Orçamento: </h2> </div>
-                <div className="row">
- 
+                <div className="row">  
+
+                    <div className="col s12 offset-s2">
+                        <h5> Escolha para quem deseja solicitar orçamento: </h5>
+                    </div>
+
                     <form className="col s12">
-                        
-                        {/* Form: Select-Options Não está exibindo... */}
+                        {/* Form: Checkbox ... */}
                         <div className="row">
-                            <div className="input-field col s10 offset-s2">
-                                <label htmlFor="tattooArtists"> Escolha uma opção abaixo:
-                                <select>
-                                    <option value="1"> Não tenho Preferencia de Tatuador</option>
-                                    <option value="2"> Tatuador 1 </option>
-                                    <option value="3"> Tatuador 2 </option>
-                                    <option value="4"> Tatuador 3 </option>
-                                </select>
-                                </label>
-                                    
-                            </div>
-                        </div>
                         
+                            <div className="col offset-s2">
+                                
+                                <p> 
+                                    <label>
+                                        <input type="checkbox" className="filled-in"></input>
+                                        <span> Tatuador1 </span>
+                                    </label>
+                                </p>
+                            </div>
+
+                            <div className="col">
+                                <p>
+                                    <label>
+                                        <input type="checkbox" className="filled-in"></input>
+                                        <span> Tatuador2 </span>
+                                    </label>
+                                </p>
+                            </div>
+
+                            <div className="col">
+                                <p>
+                                    <label>
+                                        <input type="checkbox" className="filled-in"></input>
+                                        <span> Tatuador3 </span>
+                                    </label>
+                                </p>
+                            </div>
+
+                            <div className="col">
+                                <p>
+                                    <label>
+                                        <input type="checkbox" className="filled-in"></input>
+                                        <span> Todos </span>
+                                    </label>
+                                </p>
+                            </div>
+                            
+
+                        </div>
+                    
                         {/* Form: File Input */}
                         <div className="row">
                             <div className="col offset-s2">
-
                                 <div className="file-field input-field ">
                                 
-                                <div className="btn">
-                                    <span> Foto Desenho </span>
-                                    <input type="file" ></input>
-                                </div>
+                                    <div className="btn">
+                                        <span> Foto Desenho </span>
+                                        <input type="file" ></input>
+                                    </div>
 
-                                <div className="file-path-wrapper">
-                                    <input className="file-path validate" type="text"></input>
-                                </div>
+                                    <div className="file-path-wrapper">
+                                        <input className="file-path validate" type="text"></input>
+                                    </div>
 
                                 </div>
-
                             </div>
-                                
                         </div>
+
+                        {/* Texto para descrição da imagem contendo informações adicionais sobre a tatuagem: tamanho, localização, etc. */}
+                        <div className="row">
+                            <div className="col s4 offset-s2">
+                                <div className="input-field">                         
+
+                                    <i className="material-icons prefix"> create </i>
+                                    <textarea id="icon_prefix2" className="materialize-textarea"  placeholder="tamanho em cm, localização"></textarea>
+                                    <label htmlFor="icon_prefix2">Descrição da Tatuagem</label>
+                                </div>
+                            </div>
+                        </div>
+
                         
                         {/* Botão de solicitar Orçamento */}
                         <div className="row">
@@ -88,8 +136,7 @@ class SolicitarOrcamento extends React.Component {
                         {/* <input type="submit" value="submit" onChange={ this.inputListener } /> */}
                     </form>
                     { console.log( this.state ) }
-
-
+                    
                 </div>
                 
             </div>
@@ -98,5 +145,6 @@ class SolicitarOrcamento extends React.Component {
     }
     
 }
+
 
 export default SolicitarOrcamento;
