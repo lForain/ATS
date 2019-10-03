@@ -6,6 +6,8 @@ import Login from './Components/Login';
 import Profile from './Components/Profile';
 import SolicitarOrcamento from './Components/SolicitarOrcamento';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AdminDash from './Components/Admin/AdminDash';
+import MyEmployees from './Components/Admin/MyEmployees';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -16,7 +18,10 @@ ReactDOM.render(
                 <Route path="/login" component={Login}></Route>
                 <Route path="/perfil" component={Profile}></Route>
                 <Route path="/orcamento" component={SolicitarOrcamento}></Route>
+                <Route path="/admin" component={AdminDash}></Route>
+                <Route path="/meus-funcionarios" component={MyEmployees}></Route>
                 <Route path="*"></Route>
+                
             </Switch>
         </BrowserRouter>
         
