@@ -6,7 +6,7 @@ const emailRegexCriteria = new RegExp(/\w{1,999}/);
 const pwRegexCriteria = new RegExp(/\w{1,999}/);
 const phoneRegexCriteria = new RegExp(/\w{1,999}/);
 
-async function validateUser(user){
+async function validateUser(user) {
   const { name, email, password, phone } = user;
   const messages = [];
   const nameTest = nameRegexCriteria.test(name);
