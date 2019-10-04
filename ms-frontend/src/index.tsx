@@ -11,6 +11,12 @@ import MyEmployees from './Components/Admin/Employee/MyEmployees';
 import EmployeeRegister from './Components/Admin/Employee/EmployeeRegister';
 import EmployeesProfile from './Components/Admin/Employee/EmployeesProfile';
 import UpdateEmployee from './Components/Admin/Employee/UpdateEmployee';
+import MyProducts from './Components/Admin/Products/MyProducts';
+import ProductsRegister from './Components/Admin/Products/ProductsRegister';
+import UpdateProducts from './Components/Admin/Products/UpdateProducts';
+import ProductsProfile from './Components/Admin/Products/ProductsProfile';
+
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -26,6 +32,10 @@ ReactDOM.render(
                 <Route path="/registrar-funcionario" component={EmployeeRegister}></Route>
                 <Route path="/ver-funcionario" component={EmployeesProfile}></Route>
                 <Route path="/atualizar-funcionario" component={UpdateEmployee}></Route>
+                <Route path="/meus-produtos" component={MyProducts}></Route>
+                <Route path="/registrar-produto" component={ProductsRegister}></Route>
+                <Route path="/editar-produto" component={UpdateProducts}></Route>
+                <Route path="/ver-produto" component={ProductsProfile}></Route>
                 <Route path="*"></Route>
                 
             </Switch>
