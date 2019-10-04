@@ -7,7 +7,10 @@ import Profile from './Components/Profile';
 import SolicitarOrcamento from './Components/SolicitarOrcamento';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import AdminDash from './Components/Admin/AdminDash';
-import MyEmployees from './Components/Admin/MyEmployees';
+import MyEmployees from './Components/Admin/Employee/MyEmployees';
+import EmployeeRegister from './Components/Admin/Employee/EmployeeRegister';
+import EmployeesProfile from './Components/Admin/Employee/EmployeesProfile';
+import UpdateEmployee from './Components/Admin/Employee/UpdateEmployee';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -20,6 +23,9 @@ ReactDOM.render(
                 <Route path="/orcamento" component={SolicitarOrcamento}></Route>
                 <Route path="/admin" component={AdminDash}></Route>
                 <Route path="/meus-funcionarios" component={MyEmployees}></Route>
+                <Route path="/registrar-funcionario" component={EmployeeRegister}></Route>
+                <Route path="/ver-funcionario" component={EmployeesProfile}></Route>
+                <Route path="/atualizar-funcionario" component={UpdateEmployee}></Route>
                 <Route path="*"></Route>
                 
             </Switch>

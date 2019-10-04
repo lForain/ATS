@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Profile extends React.Component{
+class EmployeesProfile extends React.Component{
 
     constructor( props: any ){
         super( props );
@@ -12,9 +12,11 @@ class Profile extends React.Component{
     render(){
         return(
             <div className="row">
-                <div className="col offset-s2"> <h2> Perfil </h2> </div> 
+                <div className="col offset-s2"> <h2> Perfil Funcionário </h2> </div> 
                 
                 <form className="col s12">  
+                    
+                    {/* Campo Nome: */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="name">Nome</label>
@@ -24,6 +26,7 @@ class Profile extends React.Component{
                         </div>
                     </div>
 
+                    {/* Campo de Email */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="email">E-mail</label>
@@ -33,7 +36,8 @@ class Profile extends React.Component{
                         </div>
 
                     </div>
-
+                    
+                    {/* Campo de Telefone */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="phone">Telefone</label>
@@ -44,6 +48,7 @@ class Profile extends React.Component{
 
                     </div>
 
+                    {/* Campo de Endereço */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="address">Endereco</label>
@@ -54,6 +59,7 @@ class Profile extends React.Component{
 
                     </div>
 
+                    {/* Campo de CPF */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="cpf">CPF</label>
@@ -64,6 +70,7 @@ class Profile extends React.Component{
 
                     </div>
 
+                    {/* Campo Data de Nascimento */}
                     <div className="row">
                         <div className="input-field col offset-s2 s6">
                             <label htmlFor="birthdate">Data Nascimento</label>
@@ -73,11 +80,11 @@ class Profile extends React.Component{
                         </div>
 
                     </div>
-                </form>
 
+                </form>
             </div>
         );
     }
 }
 
-export default Profile;
+export default EmployeesProfile;

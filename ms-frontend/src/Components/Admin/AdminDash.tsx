@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class AdminDash extends React.Component{
     constructor( props: any ){
@@ -23,20 +23,20 @@ class AdminDash extends React.Component{
                     <div className="col s2">
 
                         <div className="collection with-header">
-                            <ul> <li className="collection-header"> <b> Funcionalidades </b> </li></ul>
-                            <a href="#" className="collection-item"> Meus Funcionarios</a>
-                            <a href="#" className="collection-item"> Meus Produtos </a>
-                            <a href="#" className="collection-item"> outro</a>
-                            <a href="#" className="collection-item"> outro</a>
+                            <ul> <li className="collection-header"> <b> Funcionalidades </b> </li>
+                                <li className="collection-item"> <Link to="/meus-funcionarios"> <span> Meus Funcionários </span> </Link> </li>
+                                <li className="collection-item"> <Link to="/meus-produtos"> <span> Meus Produtos </span> </Link> </li>
+                                <li className="collection-item"> <Link to="/"> <span> outros </span> </Link> </li>
+                                <li className="collection-item"> <Link to="/"> <span> outros </span> </Link> </li>                
+                            </ul>
+                
                         </div>
-
+                        
                     </div>
 
-
                 </div>
-
+ 
             </div>
-
         )
     }
 
