@@ -85,16 +85,11 @@ class ProductsProfile extends React.Component{
                         
                         <div className="row">
 
-                            {/* Campo de Upload de fotos do produto */}
-                            <div className="file-field input-field col offset-s1 s4">
-                                <div className="btn">
-                                    <span>Fotos</span>
-                                    <input type="file" multiple/>
-                                </div>
+                            {/* Campo nome do Fornecedor */}
+                            <div className="input-field col offset-s1 s4">
+                                <label htmlFor="nomeFornecedor"> Nome do Fornecedor </label>
+                                <input name="nomeFornecedor" type="text" className="validate" disabled/>
 
-                                <div className="file-path-wrapper">
-                                    <input className="file-path validate" type="text" placeholder="Upload one or more files" disabled/>
-                                </div>
                             </div>
 
                             {/* Campo de Quantidade de Produtos */}

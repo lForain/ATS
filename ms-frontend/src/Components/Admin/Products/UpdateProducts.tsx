@@ -84,6 +84,23 @@ class UpdateProducts extends React.Component{
                         
                         <div className="row">
 
+                            {/* Campo nome do Fornecedor */}
+                            <div className="input-field col offset-s1 s4">
+                                <label htmlFor="nomeFornecedor"> Nome do Fornecedor </label>
+                                <input name="nomeFornecedor" type="text" className="validate"/>
+
+                            </div>
+                            
+
+                            {/* Campo de Quantidade de Produtos */}
+                            <div className="input-field col s4">
+                                <label htmlFor="quantidade">Quantidade</label>
+                                <input name="quantidade" type="number" className="validate" step="1" min="0" />
+                            </div>
+
+                        </div>
+
+                        <div className="row">
                             {/* Campo de Upload de fotos do produto */}
                             <div className="file-field input-field col offset-s1 s4">
                                 <div className="btn">
@@ -95,13 +112,6 @@ class UpdateProducts extends React.Component{
                                     <input className="file-path validate" type="text" placeholder="Upload one or more files"/>
                                 </div>
                             </div>
-
-                            {/* Campo de Quantidade de Produtos */}
-                            <div className="input-field col s4">
-                                <label htmlFor="quantidade">Quantidade</label>
-                                <input name="quantidade" type="number" className="validate" step="1" min="0" />
-                            </div>
-
                         </div>
                         
                         <div className="row col offset-s1">

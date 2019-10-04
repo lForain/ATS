@@ -34,28 +34,26 @@ class MyEmployees extends React.Component{
                                     <Link to="/atualizar-funcionario" className="col"> <i className="material-icons">create</i> </Link>
 
                                     {/* Icone de Deletar */}
-                                    <a href="#d" className="secondary-content" > <i className="small material-icons">delete</i></a>
+                                    <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div> 
                                 </Link>
-                                    
-
                             </li>
                             
                             {/* Tatuador 2  */}
                             <li className="collection-item">
-                                <a href="#2">
+                                <Link to="/ver-funcionario">
                                     <div> <span> Nome 2 </span> 
 
                                         {/* Icone de Editar */}
-                                        <a href="#!" className="col" ><i className="material-icons">create</i></a>
+                                        <Link to="/atualizar-funcionario" className="col" ><i className="material-icons">create</i></Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#!" className="secondary-content" >  <i className="small material-icons">delete</i> </a>
+                                        <Link to="" className="secondary-content" >  <i className="small material-icons">delete</i> </Link>
 
                                     </div>
 
-                                </a>        
+                                </Link>        
                             </li>
                         </ul>
 
@@ -67,33 +65,33 @@ class MyEmployees extends React.Component{
 
                             {/* Atendente 1 */}
                             <li className="collection-item">
-                                <a href="#1">
+                                <Link to="/ver-funcionario">
                                     <div> <span> Nome 1 </span> 
 
                                         {/* Icone de Editar  */}
-                                        <a href="#c" className="col" > <i className="material-icons">create</i></a>
+                                        <Link to="/atualizar-funcionario" className="col" > <i className="material-icons">create</i></Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#d" className="secondary-content" > <i className="small material-icons">delete</i></a>
+                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div> 
-                                </a>
+                                </Link>
                             </li>
                             
                             {/* Tatuador 2  */}
                             <li className="collection-item">
-                                <a href="#2">
+                                <Link to="/ver-funcionario">
                                     <div> <span> Nome 2 </span> 
 
                                         {/* Icone de Editar */}
-                                        <a href="#!" className="col" > <i className="material-icons">create</i> </a>
+                                        <Link to="/atualizar-funcionario" className="col" > <i className="material-icons">create</i> </Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#!" className="secondary-content" >  <i className="small material-icons">delete</i></a>
+                                        <Link to="" className="secondary-content" >  <i className="small material-icons">delete</i></Link>
 
                                     </div>
 
-                                </a>        
+                                </Link>        
                             </li>
                         </ul>
                     </div>
@@ -102,7 +100,5 @@ class MyEmployees extends React.Component{
         )
     }
 }
-
-
 
 export default MyEmployees;

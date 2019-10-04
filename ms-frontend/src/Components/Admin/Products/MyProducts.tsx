@@ -34,12 +34,10 @@ class MyProducts extends React.Component{
                                     <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
 
                                     {/* Icone de Deletar */}
-                                    <a href="#d" className="secondary-content" > <i className="small material-icons">delete</i></a>
+                                    <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div> 
                                 </Link>
-                                    
-
                             </li>
                             
                             {/* Produto 2  */}
@@ -51,7 +49,7 @@ class MyProducts extends React.Component{
                                         <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#!" className="secondary-content" >  <i className="small material-icons">delete</i> </a>
+                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div>
 
@@ -74,7 +72,7 @@ class MyProducts extends React.Component{
                                         <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#d" className="secondary-content" > <i className="small material-icons">delete</i></a>
+                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div> 
                                 </Link>
@@ -82,18 +80,18 @@ class MyProducts extends React.Component{
                             
                             {/* Produto Consumivel 2  */}
                             <li className="collection-item">
-                                <a href="#2">
+                                <Link to="ver-produto">
                                     <div> <span> Nome Produto Consumivel 2 </span> 
 
                                         {/* Icone de Editar */}
-                                        <a href="#!" className="col" > <i className="material-icons">create</i> </a>
+                                        <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
 
                                         {/* Icone de Deletar */}
-                                        <a href="#!" className="secondary-content" >  <i className="small material-icons">delete</i></a>
+                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
 
                                     </div>
 
-                                </a>        
+                                </Link>        
                             </li>
                         </ul>
                     </div>
@@ -102,7 +100,5 @@ class MyProducts extends React.Component{
         )
     }
 }
-
-
 
 export default MyProducts;
