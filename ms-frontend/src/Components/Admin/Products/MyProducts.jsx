@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { log } from 'util';
 import { any, string } from 'prop-types';
+import ProdVenda from '../ProdComponents/ProdList';
 
 class MyProducts extends React.Component {
     
@@ -41,43 +42,9 @@ class MyProducts extends React.Component {
                     <div className="col offset-s2 s8">
 
                         {/* Produtos Vendíveis */}
-                        <ul className="collection with-header">
-                            <li className="collection-header"><h4>Produtos a venda</h4>
-                                <Link to="/registrar-produto"> <i className="small material-icons">add_box</i> <span> Cadastrar Produto novo </span>  </Link>
-                            </li>
-
-                            {/* Produto a venda 1 */}
-                            <li className="collection-item">
-                                <Link to="/ver-produto">
-                                    <div> <span>{products.map( product => <li>{product.name} </li> )}</span>
-
-                                        {/* Icone de Editar  */}
-                                        <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
-
-                                        {/* Icone de Deletar */}
-                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
-
-                                    </div>
-                                </Link>
-                            </li>
-
-                            {/* Produto 2  */}
-                            <li className="collection-item">
-                                <Link to="/ver-produto">
-                                    <div> <span> Nome Produto a venda 2 </span>
-
-                                        {/* Icone de Editar */}
-                                        <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>
-
-                                        {/* Icone de Deletar */}
-                                        <Link to="" className="secondary-content" > <i className="small material-icons">delete</i></Link>
-
-                                    </div>
-
-                                </Link>
-                            </li>
-                        </ul>
-
+                        <ProdVenda
+                        liName="Produtos Vendíveis"/>
+""
                         {/* Produtos Consumiveis  */}
                         <ul className="collection with-header">
                             <li className="collection-header"><h4>Produtos Consumíveis</h4>
