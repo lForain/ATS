@@ -16,6 +16,9 @@ import MyProducts from './Components/Admin/Products/MyProducts';
 import ProductsRegister from './Components/Admin/Products/ProductsRegister';
 import UpdateProducts from './Components/Admin/Products/UpdateProducts';
 import ProductsProfile from './Components/Admin/Products/ProductsProfile';
+import MyCategories from './Components/Admin/Categories/MyCategories';
+
+
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -35,6 +38,7 @@ ReactDOM.render(
                 <Route path="/registrar-produto" component={ProductsRegister}></Route>
                 <Route path="/editar-produto" component={UpdateProducts}></Route>
                 <Route path="/ver-produto" component={ProductsProfile}></Route>
+                <Route path="/minhas-categorias" component={ MyCategories }></Route>
                 <Route path="*"></Route>
                 
             </Switch>

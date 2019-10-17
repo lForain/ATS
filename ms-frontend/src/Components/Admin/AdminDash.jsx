@@ -26,7 +26,7 @@ class AdminDash extends React.Component{
                             <ul> <li className="collection-header"> <b> Funcionalidades </b> </li>
                                 <li className="collection-item"> <Link to="/meus-funcionarios"> <span> Meus Funcionários </span> </Link> </li>
                                 <li className="collection-item"> <Link to="/meus-produtos"> <span> Meus Produtos </span> </Link> </li>
-                                <li className="collection-item"> <Link to="/"> <span> outros </span> </Link> </li>
+                                <li className="collection-item"> <Link to="/minhas-categorias"> <span> Minhas Categorias </span> </Link> </li>
                                 <li className="collection-item"> <Link to="/"> <span> outros </span> </Link> </li>                
                             </ul>
                 

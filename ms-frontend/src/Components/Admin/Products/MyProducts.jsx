@@ -41,9 +41,8 @@ class MyProducts extends React.Component {
                 <div className="row">
                     <div className="col offset-s2 s8">
 
-                        {/* Produtos Vendíveis */}
-                        <ProdVenda
-                        liName="Produtos Vendíveis"/>
+                        {/* Produtos Vendáveis */}
+                        <ProdVenda liName="Produtos Vendíveis"/>
 ""
                         {/* Produtos Consumiveis  */}
                         <ul className="collection with-header">
