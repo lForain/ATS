@@ -1,16 +1,16 @@
 import React from 'react'; 
 import 'materialize-css/dist/js/materialize';
 import 'materialize-css/dist/css/materialize.min.css';
+import axios from "axios";
 // import { throwStatement } from '@babel/types';
 import $ from 'jquery';
 
-
 class SolicitarOrcamento extends React.Component {
-    constructor( props: number ){
+    constructor( props ){
         super(props);
         this.state = { value: "1" };
 
-        // this.handleChange = this.handleChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
         // this.handleSubmit = this.handleSubmit.bind(this);
 
     }
@@ -24,11 +24,16 @@ class SolicitarOrcamento extends React.Component {
     //     event.preventDefault();
     // }
     
-    submitForm = () => {
-        console.log( this.state );
+    onSubmit = ( event ) => {
+        event.preventDefault();
+        try {
+            axios.post('http://localhost:5001/emailsender').then(resp => console.log(`Response: ${JSON.stringify(resp)}`))
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    inputListener = ( event: any ) => {
+    inputListener = ( event ) => {
         const {name, value} = event.target;
         this.setState({
             [name]: value
@@ -130,7 +135,7 @@ class SolicitarOrcamento extends React.Component {
                         {/* Botão de solicitar Orçamento */}
                         <div className="row">
                             <div className="col offset-s2">
-                                <button onClick={ this.submitForm } className="waves-effect waves-light btn black">Solicitar Orçamento</button>
+                                <button onClick={ this.onSubmit } className="waves-effect waves-light btn black">Solicitar Orçamento</button>
                             </div>
                         </div>
                         {/* <input type="submit" value="submit" onChange={ this.inputListener } /> */}
