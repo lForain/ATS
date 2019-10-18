@@ -11,7 +11,7 @@ export default props => (
       {/* Produto a venda 1 */}
       <li className="collection-item">
           <Link to="/ver-produto">
-              <div> <span> </span>
+              <div> <span> Pegar nome do Item cadastrado no banco através do node </span>
 
                   {/* Icone de Editar  */}
                   <Link to="/editar-produto" className="col"> <i className="material-icons">create</i> </Link>

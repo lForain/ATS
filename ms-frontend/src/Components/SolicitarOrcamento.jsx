@@ -3,7 +3,7 @@ import 'materialize-css/dist/js/materialize';
 import 'materialize-css/dist/css/materialize.min.css';
 import axios from "axios";
 // import { throwStatement } from '@babel/types';
-import $ from 'jquery';
+// import $ from 'jquery';
 
 class SolicitarOrcamento extends React.Component {
     constructor( props ){
@@ -14,15 +14,6 @@ class SolicitarOrcamento extends React.Component {
         // this.handleSubmit = this.handleSubmit.bind(this);
 
     }
-
-    // handleChange( event: any ) {
-    //     this.setState( { value: this.value } );
-    // }
-    
-    // handleSubmit( event: any ) {
-    //     alert( "Voce escolheu " + this.state.value );
-    //     event.preventDefault();
-    // }
     
     onSubmit = ( event ) => {
         event.preventDefault();
@@ -150,6 +141,4 @@ class SolicitarOrcamento extends React.Component {
     }
     
 }
-
-
 export default SolicitarOrcamento;
