@@ -12,7 +12,7 @@ export default function Cabecalho (){
                 <ul id="nav-mobile" className="left hide-on-med-and-down">
                     <li><Link to="/"><span>Home</span></Link></li>
                     <li><Link to="/orcamento"><span>Minhas Tatuagens</span></Link></li>
-                    <li><Link to="/"><span>Tattoos</span></Link></li>
+                    <li><Link to="/tattoos"><span>Tattoos</span></Link></li>
                     <li><Link to="/"><span>Contato</span></Link></li>
                     <li><Link to="/"><span>Loja</span></Link></li>
                 </ul>
