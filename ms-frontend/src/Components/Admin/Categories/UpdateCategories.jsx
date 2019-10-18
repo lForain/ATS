@@ -52,7 +52,7 @@ class UpdateCategories extends React.Component{
                         
                         <div className="row">
                             <div className="col s11 offset-s1">
-                                <button onClick={ this.onSubmit } type="submit" value="submit form" className="waves-effect waves-light btn black">Cadastrar Categoria</button>
+                                <button onClick={ this.onSubmit } type="submit" value="submit form" className="waves-effect waves-light btn black">Editar Categoria</button>
                             </div>
                         </div>
 
