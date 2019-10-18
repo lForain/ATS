@@ -22,6 +22,7 @@ import CategoriesRegister from './Components/Admin/Categories/CategoriesRegister
 import CategoriesAssociation from './Components/Admin/Categories/ProdListCategory';
 
 import * as serviceWorker from './serviceWorker';
+import Tattoos from './Components/Tattoos';
 
 ReactDOM.render(
     <div>
@@ -31,6 +32,8 @@ ReactDOM.render(
                 <Route path="/login" component={Login}></Route>
                 <Route path="/perfil" component={Profile}></Route>
                 <Route path="/orcamento" component={SolicitarOrcamento}></Route>
+                <Route path="/tattoos" component={Tattoos}></Route>
+
                 <Route path="/admin" component={AdminDash}></Route>
                 <Route path="/meus-funcionarios" component={MyEmployees}></Route>
                 <Route path="/registrar-funcionario" component={EmployeeRegister}></Route>
