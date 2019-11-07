@@ -14,7 +14,7 @@ export default function Cabecalho (){
                     <li><Link to="/orcamento"><span>Minhas Tatuagens</span></Link></li>
                     <li><Link to="/tattoos"><span>Tattoos</span></Link></li>
                     <li><Link to="/"><span>Contato</span></Link></li>
-                    <li><Link to="/"><span>Loja</span></Link></li>
+                    <li><Link to="/loja"><span>Loja</span></Link></li>
                 </ul>
                 <div className="right row">
                     <div className="col s18" >

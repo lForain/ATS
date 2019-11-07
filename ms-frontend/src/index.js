@@ -4,6 +4,7 @@ import './index.css';
 import './Assets/css//index.css';
 import Cabecalho from './Components/Cabecalho';
 import Login from './Components/Login';
+import Shop from './Components/Shop/Shop';
 import Profile from './Components/Profile';
 import SolicitarOrcamento from './Components/SolicitarOrcamento';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -33,7 +34,7 @@ ReactDOM.render(
                 <Route path="/perfil" component={Profile}></Route>
                 <Route path="/orcamento" component={SolicitarOrcamento}></Route>
                 <Route path="/tattoos" component={Tattoos}></Route>
-
+                <Route path="/loja" component={ Shop }></Route>
                 <Route path="/admin" component={AdminDash}></Route>
                 <Route path="/meus-funcionarios" component={MyEmployees}></Route>
                 <Route path="/registrar-funcionario" component={EmployeeRegister}></Route>
