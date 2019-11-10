@@ -24,6 +24,7 @@ import CategoriesAssociation from './Components/Admin/Categories/ProdListCategor
 
 import * as serviceWorker from './serviceWorker';
 import Tattoos from './Components/Tattoos';
+import Contato from './Components/Contato';
 
 ReactDOM.render(
     <div>
@@ -49,6 +50,7 @@ ReactDOM.render(
                 <Route path="/associar-categoria" component={CategoriesAssociation}></Route>
                 <Route path="/atualizar-categoria" component={ UpdateCategories }></Route>
                 <Route path="/cadastrar-categoria" component={ CategoriesRegister }></Route>
+                <Route path="/contato" component={ Contato }></Route>
                 <Route path="*"></Route>
                 
             </Switch>

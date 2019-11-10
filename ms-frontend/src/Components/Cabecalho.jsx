@@ -13,7 +13,7 @@ export default function Cabecalho (){
                     <li><Link to="/"><span>Home</span></Link></li>
                     <li><Link to="/orcamento"><span>Minhas Tatuagens</span></Link></li>
                     <li><Link to="/tattoos"><span>Tattoos</span></Link></li>
-                    <li><Link to="/"><span>Contato</span></Link></li>
+                    <li><Link to="/contato"><span>Contato</span></Link></li>
                     <li><Link to="/loja"><span>Loja</span></Link></li>
                 </ul>
                 <div className="right row">
