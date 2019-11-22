@@ -21,6 +21,7 @@ import MyCategories from './Components/Admin/Categories/MyCategories';
 import UpdateCategories from './Components/Admin/Categories/UpdateCategories';
 import CategoriesRegister from './Components/Admin/Categories/CategoriesRegister';
 import CategoriesAssociation from './Components/Admin/Categories/ProdListCategory';
+import Basket from './Components/Shop/Basket/Basket';
 
 import * as serviceWorker from './serviceWorker';
 import Tattoos from './Components/Tattoos';
@@ -51,6 +52,7 @@ ReactDOM.render(
                 <Route path="/atualizar-categoria" component={ UpdateCategories }></Route>
                 <Route path="/cadastrar-categoria" component={ CategoriesRegister }></Route>
                 <Route path="/contato" component={ Contato }></Route>
+                <Route path="/carrinho" component={ Basket }></Route>
                 <Route path="*"></Route>
                 
             </Switch>
