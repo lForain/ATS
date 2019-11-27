@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchInput from './SearchInput';
 import ProductCard from './ProductCard';
+// import MediaCard from './ProductCard';
 
 
 class Shop extends React.Component{

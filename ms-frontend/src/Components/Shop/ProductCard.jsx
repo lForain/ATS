@@ -1,15 +1,29 @@
 import React from 'react';
+import Test from './Test';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import Icon from '@material-ui/core/Icon';
+import Chip from '@material-ui/core/Chip';
+// import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
 
 class ProductCard extends React.Component{
+
   constructor( props ){
     super( props );
 
     this.state = {
       name: "Nome Produto!",
-      description: "Teste de Descrição Lorem Ipsum! Meu pastel é mais barato! Mengão Campeão Mundial! ",
-      qtd: 0,
+      description: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
+      qtdEstoque: 0,
+      qtdAdicionarCarrinho: 0,
       imgSrc: "",
-      categories: []
+      categories: [ "camisa", "piercing" ]
 
     };
 
@@ -17,37 +31,70 @@ class ProductCard extends React.Component{
   }
 
   render(){
+    // const useStyles = makeStyles({
+    //   card: {
+    //     maxWidth: 345,
+    //   },
+    //   media: {
+    //     height: 140,
+    //   },
+    // });
+
+    // const classes = useStyles();
+
     return(
       <div>
-        <div className="card">
 
-          <div className="card-image">
-            {/* Imagem do produto */}
-            <img src= { this.state.imgSrc } alt="Imagem de um produto"/>
+        <Card>
+          <CardActionArea >
+            <CardMedia
+              // image={ this.state.imgSrc }
+              image = ""
+              title="Product Image"
+            />
+        
+          </CardActionArea>
+
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">  
+              { this.state.name }
+              {/* Nome do produto */}
+
+            </Typography>
+        
+            <Typography variant="body2" color="textSecondary" component="p">
+              { this.state.description }
               
-            {/* Nome do Título = Nome do produto */}
-            <span className="card-title"> { this.state.name } </span>    
-          </div>
+              <hr></hr>
+              Quantidade em Estoque: { this.state.qtdEstoque }
+            </Typography>
                     
-          <div className="card-content">
-            {/* Descrição do Produto */}
-            <p> { this.state.description } </p>
-            
-            {/* Quantidade em Estoque */}
-            <p> Quantidade: <b> { this.state.qtd } </b> </p>
+            <CardActions>
+              <Icon onclick="funcao de decrementar qtdAdicionarCarrinho" >remove_circle</Icon>
+              { this.state.qtdAdicionarCarrinho }
+              <Icon onClick="funcao de incrementar qtdAdicionarCarrinho" >add_circle</Icon>
+              
+              {/* Categorias */}
+              <Chip label= { this.state.categories[0] } />
+              <Chip label= { this.state.categories[1] } />
+          
+            </CardActions>
+            <Typography variant="body2" color="textPrimary" component="p">
+              <hr />
+            </Typography>
 
-            {/* Categorias -- TODO: Como fazer um css desse arquivo aqui para estilizar essas divs */}
-            <div className="cateogory" id="category1"> Categoria 1 </div> <div className="category" id="category2">  Categoria 2  </div>
+          <CardActions>
+            <Button size="medium" variant="contained" color="secondary" onClick="funcao de adicionar produto ao ProductBasketList"> Adicionar ao Carrinho </Button>
+          </CardActions>
 
-            {/* Botão de retirar do carrinho */}
-            <a className="btn-floating waves-effect waves-light green"><i className="material-icons">remove</i></a>
 
-            {/* Botão de adicionar no carrinho */}
-            <a className="btn-floating waves-effect waves-light red"><i className="material-icons">add</i></a>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
+
+
       </div>
     )
   }
 }
 export default ProductCard;
+
