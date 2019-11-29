@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class AdminDash extends React.Component{
+class PainelTatuador extends React.Component{
     constructor( props ){
         super(props);
     }
@@ -12,7 +12,7 @@ class AdminDash extends React.Component{
             <div>
                 <div className="row">
                     <div className="col offset-s1 s12">
-                        <h1> Painel Administrativo  </h1>
+                        <h1> Painel do Tatuador  </h1>
                     </div>
                 </div>
                 
@@ -24,10 +24,7 @@ class AdminDash extends React.Component{
 
                         <div className="collection with-header">
                             <ul> <li className="collection-header"> <b> Funcionalidades </b> </li>
-                                <li className="collection-item"> <Link to="/meus-funcionarios"> <span> Meus Funcionários </span> </Link> </li>
-                                <li className="collection-item"> <Link to="/meus-produtos"> <span> Meus Produtos </span> </Link> </li>
-                                <li className="collection-item"> <Link to="/minhas-categorias"> <span> Minhas Categorias </span> </Link> </li>
-                                <li className="collection-item"> <Link to="/"> <span> outros </span> </Link> </li>                
+                                <li className="collection-item"> <Link to="/meus-orcamentos"> <span> Meus Orçamentos </span> </Link> </li>              
                             </ul>
                 
                         </div>
@@ -42,4 +39,4 @@ class AdminDash extends React.Component{
 
 }
 
-export default AdminDash;
+export default PainelTatuador;

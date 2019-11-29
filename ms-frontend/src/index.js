@@ -26,6 +26,9 @@ import Basket from './Components/Shop/Basket/Basket';
 import * as serviceWorker from './serviceWorker';
 import Tattoos from './Components/Tattoos';
 import Contato from './Components/Contato';
+import PainelTatuador from './Components/Tatuador/PainelTatuador';
+import MeusOrcamentos from './Components/Tatuador/MeusOrcamentos';
+import ResponderOrcamento from './Components/Tatuador/ResponderOrcamento'
 
 ReactDOM.render(
     <div>
@@ -53,6 +56,9 @@ ReactDOM.render(
                 <Route path="/cadastrar-categoria" component={ CategoriesRegister }></Route>
                 <Route path="/contato" component={ Contato }></Route>
                 <Route path="/carrinho" component={ Basket }></Route>
+                <Route path="/tatuador" component={PainelTatuador}></Route>
+                <Route path="/meus-orcamentos" component={MeusOrcamentos}></Route>
+                <Route path="/responder-orcamento" component={ResponderOrcamento}></Route>
                 <Route path="*"></Route>
                 
             </Switch>
